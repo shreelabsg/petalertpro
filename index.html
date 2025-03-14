@@ -2,11 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PetAlertPro - Protect Your Pets</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>PetAlertPro - Keep Your Pets Safe</title>
     <style>
         * {
             margin: 0;
@@ -15,7 +12,7 @@
             font-family: 'Poppins', sans-serif;
         }
         body {
-            background: linear-gradient(135deg, #fdfbfb, #ebedee);
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,85 +20,80 @@
             margin: 0;
         }
         .container {
-            max-width: 650px;
             background: #ffffff;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             text-align: center;
+            width: 90%;
+            max-width: 500px;
         }
         h1 {
             font-size: 2.5em;
             font-weight: bold;
-            color: #ff4500;
+            color: #e44d26;
             margin-bottom: 15px;
         }
         p {
-            font-size: 1.2em;
             color: #555;
+            font-size: 1.2em;
+            margin-bottom: 20px;
         }
         ul {
             list-style: none;
             padding: 0;
-            margin-top: 20px;
+            margin: 20px 0;
         }
         ul li {
             display: flex;
             align-items: center;
             font-size: 1.1em;
-            margin: 8px 0;
-            color: #444;
+            margin: 10px 0;
+            color: #333;
+        }
+        ul li::before {
+            content: '\2713';
+            color: #e44d26;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-right: 10px;
         }
         .button {
-            background: #ff6f61;
+            display: inline-block;
+            background: linear-gradient(135deg, #ff7e5f, #ff4500);
             color: white;
-            padding: 14px 25px;
-            font-size: 1.2em;
+            padding: 15px 25px;
+            font-size: 1.3em;
             font-weight: 600;
+            text-transform: uppercase;
             text-decoration: none;
             border-radius: 8px;
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s, transform 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         .button:hover {
-            background: #ff6b6b;
-            transform: scale(1.05);
+            background: linear-gradient(135deg, #ff6a3c, #e44d26);
+            transform: translateY(-2px);
         }
-        ul {
-            padding: 0;
-        }
-        li {
-            font-size: 1.1em;
-            display: flex;
-            align-items: center;
-        }
-        li::before {
-            content: '\2022';
-            color: #e44d26;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
+        .button-container {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>PetAlertPro - Stay Updated & Keep Your Pets Safe</h1>
-        <p class="description">Real-time pet food recall alerts directly to your email. Get instant updates on FDA warnings and contamination risks to keep your pets safe.</p>
+        <h1>Stay Updated, Stay Safe!</h1>
+        <p class="description">Get instant alerts about pet food recalls and contamination risks for your pet’s safety.</p>
         <ul>
-            <li>Instant alerts for FDA pet food recalls</li>
-            <li>Custom tracking for your pet’s food brand</li>
-            <li>Early contamination risk notifications</li>
-            <li>Priority alerts for critical cases</li>
+            <li>Real-time FDA recall notifications</li>
+            <li>Customized alerts for your pet’s food brand</li>
+            <li>Early contamination risk warnings</li>
+            <li>Exclusive pet health tips & updates</li>
         </ul>
-        <a href="#" class="button">Subscribe Now - $10/month</a>
-        <div class="footer">
-            <p><a href="/terms.html">Terms & Conditions</a> | <a href="/privacy.html">Privacy Policy</a></p>
+        <div class="button-container">
+            <a href="#" class="button">Subscribe Now - $10/month</a>
         </div>
+        <p style="margin-top: 15px;"><a href="/terms" style="text-decoration: none; color: #e44d26; font-weight: bold;">Terms & Conditions</a> | <a href="/privacy" style="text-decoration: none; color: #e44d26; font-weight: bold;">Privacy Policy</a></p>
     </div>
 </body>
 </html>
