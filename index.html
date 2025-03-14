@@ -3,33 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetAlertPro - Pet Food Recall Alerts</title>
+    <title>PetAlertPro - Protect Your Pet from Contaminated Food</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        .container { max-width: 600px; margin: auto; }
-        .button { background-color: #007BFF; color: white; padding: 10px 20px; text-decoration: none; display: inline-block; border-radius: 5px; margin-top: 20px; }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+        }
+        .description {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .button {
+            background-color: #e67e22;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: 0.3s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #c0392b;
+        }
+        .footer-links a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin: 0 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to PetAlertPro</h1>
-        <p>Stay informed about pet food recalls and contamination alerts. Subscribe now to protect your pets.</p>
+        <h1>🚨 PetAlertPro: Instant Pet Food Recall Alerts! 🐶🐱</h1>
+        <p class="description">Stay informed about pet food recalls and contamination risks. Subscribe now to receive real-time alerts and keep your pets safe.</p>
         
-        <h2>Why Subscribe?</h2>
-        <ul style="text-align: left; display: inline-block;">
-            <li>Real-time FDA recall alerts</li>
-            <li>Personalized notifications for your pet's food brand</li>
-            <li>Early contamination warnings</li>
+        <h2>Why PetAlertPro?</h2>
+        <ul>
+            <li>⚠️ Instant alerts on FDA food recalls</li>
+            <li>Personalized warnings for YOUR pet's brand</li>
+            <li>Early contamination detection & health updates</li>
+            <li>Peace of mind knowing your pet is safe</li>
         </ul>
         
-        <h2>Subscription - $10/month</h2>
-        <a href="#" class="button" id="subscribe-button">Subscribe Now</a>
+        <a href="#" class="button" id="subscribe-button">Get Real-Time Alerts - $10/month</a>
         
-        <p><a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a> | <a href="refund.html">Refund Policy</a></p>
+        <div class="footer-links">
+            <p><a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a></p>
+        </div>
     </div>
     
     <script>
-        document.getElementById('subscribe-button').href = 'https://buy.paddle.com/YOUR_PADDLE_CHECKOUT_URL';
+        document.getElementById("subscribe-button").href = 'https://buy.paddle.com/YOUR_PADDLE_LINK_HERE';
     </script>
 </body>
 </html>
