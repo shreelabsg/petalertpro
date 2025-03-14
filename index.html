@@ -43,6 +43,7 @@
             list-style: none;
             padding: 0;
             margin: 20px 0;
+            text-align: left;
         }
         ul li {
             display: flex;
@@ -58,17 +59,6 @@
             font-weight: bold;
             margin-right: 10px;
         }
-        .form-container {
-            margin-top: 20px;
-        }
-        input[type="email"] {
-            width: 80%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
         .button {
             display: inline-block;
             background: #e74c3c;
@@ -77,9 +67,8 @@
             font-size: 1.2em;
             text-decoration: none;
             border-radius: 8px;
-            display: inline-block;
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 20px;
             transition: background 0.3s, transform 0.2s;
             border: none;
             cursor: pointer;
@@ -88,26 +77,54 @@
             background: #c0392b;
             transform: scale(1.05);
         }
+        .email-container {
+            margin-top: 20px;
+        }
+        input[type="email"] {
+            width: 80%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            text-align: center;
+            margin-bottom: 10px;
+        }
         #responseMessage {
             margin-top: 10px;
             font-size: 1.1em;
             color: green;
         }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            text-align: center;
+            color: #555;
+        }
+        .footer a {
+            color: #e44d26;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Stay Updated, Stay Safe!</h1>
-        <p class="description">Get instant alerts about pet food recalls and contamination risks for your pet’s safety.</p>
+        <h1>🚨 PetAlertPro: Instant Pet Food Recall Alerts! 🐶🐱</h1>
+        <p class="description">Stay informed about pet food recalls and contamination risks. Ensure your pet's safety with real-time alerts.</p>
+        
+        <h2 style="text-align: left; font-size: 1.5em; font-weight: 600; color: #333;">Why PetAlertPro?</h2>
         <ul>
-            <li>Real-time FDA recall notifications</li>
-            <li>Customized alerts for your pet’s food brand</li>
-            <li>Early contamination risk warnings</li>
-            <li>Exclusive pet health tips & updates</li>
+            <li>⚠️ Instant alerts on FDA pet food recalls</li>
+            <li>🔍 Monitor only your pet’s food brand</li>
+            <li>✅ Receive exclusive health updates</li>
+            <li>🛡️ Peace of mind for your furry friends</li>
         </ul>
         
         <!-- Email Collection Form -->
-        <div class="form-container">
+        <div class="email-container">
             <form id="subscribeForm">
                 <input type="email" id="email" placeholder="Enter your email" required>
                 <button type="submit" class="button">Get Real-Time Alerts - $10/month</button>
@@ -115,10 +132,9 @@
             <p id="responseMessage"></p>
         </div>
 
-        <p style="margin-top: 15px;">
-            <a href="/terms" style="text-decoration: none; color: #e44d26; font-weight: bold;">Terms & Conditions</a> | 
-            <a href="/privacy" style="text-decoration: none; color: #e44d26; font-weight: bold;">Privacy Policy</a>
-        </p>
+        <div class="footer">
+            <p><a href="/terms">Terms & Conditions</a> | <a href="/privacy">Privacy Policy</a></p>
+        </div>
     </div>
 
     <script>
