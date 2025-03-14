@@ -25,17 +25,16 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             text-align: center;
-            width: 95%;
-            max-width: 600px; /* Increased width to fit title in one line */
+            width: auto; /* Auto width to fit content */
+            max-width: 970px; /* Prevent it from becoming too wide */
+            min-width: 650px; /* Prevent it from shrinking too much */
         }
         h1 {
-            font-size: 2.2em; /* Slightly reduced font size to fit */
+            font-size: 2.5em;
             font-weight: bold;
             color: #e44d26;
             margin-bottom: 15px;
-            white-space: nowrap; /* Prevents breaking into two lines */
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: nowrap; /* Prevent breaking into two lines */
         }
         p {
             color: #555;
