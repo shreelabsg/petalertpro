@@ -25,14 +25,17 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             text-align: center;
-            width: 90%;
-            max-width: 500px;
+            width: 95%;
+            max-width: 600px; /* Increased width to fit title in one line */
         }
         h1 {
-            font-size: 2.5em;
+            font-size: 2.2em; /* Slightly reduced font size to fit */
             font-weight: bold;
             color: #e44d26;
             margin-bottom: 15px;
+            white-space: nowrap; /* Prevents breaking into two lines */
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         p {
             color: #555;
