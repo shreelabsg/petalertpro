@@ -26,15 +26,16 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             text-align: center;
             width: auto; /* Auto width to fit content */
-            max-width: 970px; /* Prevent it from becoming too wide */
-            min-width: 650px; /* Prevent it from shrinking too much */
+            max-width: 990px; /* Slightly increased */
+            min-width: 650px;
+            word-wrap: break-word; /* Prevents content from overflowing */
         }
         h1 {
             font-size: 2.5em;
             font-weight: bold;
             color: #e44d26;
             margin-bottom: 15px;
-            white-space: nowrap; /* Prevent breaking into two lines */
+            white-space: normal; /* Allow wrapping */
         }
         p {
             color: #555;
