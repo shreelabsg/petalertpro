@@ -18,10 +18,9 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            text-align: center;
         }
         .container {
-            max-width: 600px;
+            max-width: 970px;
             background: white;
             padding: 30px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -39,24 +38,22 @@
             margin-bottom: 20px;
             color: #2c3e50;
         }
-        .input-group {
-            margin-top: 15px;
+        ul {
+            list-style: none;
+            padding: 0;
             text-align: left;
         }
-        label {
-            font-size: 1em;
-            font-weight: 600;
-            color: #333;
-            display: block;
-            margin-bottom: 5px;
+        ul li {
+            font-size: 1.1em;
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
         }
-        input[type="email"], input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
+        ul li::before {
+            content: "✔";
+            color: #27ae60;
+            font-size: 1.3em;
+            margin-right: 10px;
         }
         .button {
             background: #e74c3c;
@@ -69,12 +66,33 @@
             font-weight: bold;
             margin-top: 20px;
             transition: background 0.3s, transform 0.2s;
-            border: none;
             cursor: pointer;
+            border: none;
         }
         .button:hover {
             background: #c0392b;
             transform: scale(1.05);
+        }
+        .input-container {
+            margin-top: 20px;
+        }
+        input[type="email"], input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            text-align: center;
+            margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .instruction {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 10px;
         }
         .footer {
             margin-top: 20px;
@@ -95,23 +113,47 @@
     <div class="container">
         <h1>🚨 PetAlertPro: Instant Pet Food Recall Alerts! 🐶🐱</h1>
         <p class="description">Stay informed about pet food recalls and contamination risks. Ensure your pet's safety with real-time alerts.</p>
+        
+        <h2>Why PetAlertPro?</h2>
+        <ul>
+            <li>⚠️ Instant alerts on FDA pet food recalls</li>
+            <li>🔍 Monitor only your pet’s food brand</li>
+            <li>✅ Receive exclusive health updates</li>
+            <li>🛡️ Peace of mind for your furry friends</li>
+        </ul>
 
-        <div class="input-group">
-            <label for="email">Enter your email:</label>
-            <input type="email" id="email" placeholder="example@email.com" required>
+        <div class="input-container">
+            <form id="subscription-form" action="https://script.google.com/macros/s/AKfycbxmlA1TMJ_gGQBAXEnV__svRflf3OCl5zDYmnbHRBK72FGg3s-OmpKrCEkZzQlpm8sc/exec" method="POST">
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                <p class="instruction">Enter pet food brands you want to monitor (comma-separated):</p>
+                <input type="text" name="brands" id="brands" placeholder="e.g., Pedigree, Purina, Royal Canin" required>
+                <button type="submit" class="button">Get Real-Time Alerts - $10/month</button>
+            </form>
         </div>
-
-        <div class="input-group">
-            <label for="brands">Enter pet food brands to track (comma separated):</label>
-            <input type="text" id="brands" placeholder="e.g., Brand1, Brand2, Brand3">
-        </div>
-
-        <button class="button" id="subscribe-button">Get Real-Time Alerts - $10/month</button>
 
         <div class="footer">
             <p>&copy; 2025 PetAlertPro. All rights reserved.</p>
-            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
         </div>
     </div>
+
+    <script>
+        document.getElementById("subscription-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var form = this;
+            var formData = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: formData
+            })
+            .then(response => response.text())
+            .then(() => {
+                alert("Thank you! We’ll notify you.");
+                form.reset();
+            })
+            .catch(error => console.error("Error!", error.message));
+        });
+    </script>
 </body>
 </html>
