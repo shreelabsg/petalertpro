@@ -115,22 +115,37 @@
     </div>
 
     <script>
-        document.getElementById("subscribe-button").addEventListener("click", function () {
-            const email = document.getElementById("email").value.trim();
-            const brands = document.getElementById("brands").value.trim();
+            document.getElementById("subscribe-button").addEventListener("click", function () {
+                var email = document.getElementById("email").value.trim();
+                var brands = document.getElementById("brands").value.trim();
+            
+                if (!email) {
+                    alert("Please enter a valid email.");
+                    return;
+                }
+            
+                var formData = new FormData();
+                formData.append("email", email);
+                formData.append("brands", brands);
+            
+                fetch("https://script.google.com/macros/s/AKfycbzHPSrG1OQf7exv95T7BxpGWP-LAd6PwKi_OZSaIKc0L0Ti2D0m2iWDx4dpd9uj6p58/exec", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        window.location.href = "https://petalertpro.com/thank-you.html";
+                    } else {
+                        alert("Error: " + (data.message || "Something went wrong."));
+                    }
+                })
+                .catch(error => {
+                    alert("Failed to submit. Please try again later.");
+                    console.error("Error:", error);
+                });
+            });
+</script>
 
-            if (!email) {
-                alert("Please enter your email.");
-                return;
-            }
-
-            const formData = new URLSearchParams();
-            formData.append("email", email);
-            formData.append("brands", brands);
-
-            // ✅ Open in a new tab so the user sees the redirect
-            window.open("https://script.google.com/macros/s/AKfycby0WS8Wuhbg1eoxA1TpHkzUZtGhB-lQmap5gjPyxIMLTwMbuOeeTHKXqEw7Hc6ksL-L/exec?" + formData.toString(), "_blank");
-        });
-    </script>
 </body>
 </html>
