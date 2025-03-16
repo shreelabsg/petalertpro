@@ -5,28 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Preferences - PetAlert</title>
     <style>
-       body {
-            font-family: 'Poppins', sans-serif;
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            color: #333;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            overflow-y: auto; /* ✅ Prevents content cutoff */
-            padding: 20px;
+            height: 100vh;
         }
+
         .container {
-            max-width: 600px;
-            background: white;
+            background: #ffffff;
             padding: 30px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
+            max-width: 500px;
+            text-align: left;
         }
 
         h2 {
@@ -37,23 +34,32 @@
 
         .input-group {
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
         }
 
         .input-group label {
             font-weight: bold;
             color: #555;
-            min-width: 120px;
+            display: block; /* Ensures label is on a separate line */
+            margin-bottom: 5px;
+        }
+
+        .inline-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .inline-group label {
+            font-weight: bold;
+            color: #555;
         }
 
         .email-display {
             font-weight: bold;
             color: #222;
-            flex-grow: 1;
         }
 
-        input {
+        input[type="text"] {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
@@ -63,22 +69,20 @@
 
         .checkbox-group {
             display: flex;
-            align-items: flex-start; /* ✅ Align checkbox to the top */
+            align-items: center;
+            gap: 10px;
             margin-top: 10px;
-            text-align: left;    
         }
 
         .checkbox-group input {
-            margin-right: 10px;
-            transform: scale(1.2);
-            margin-top: 4px; /* ✅ Adjust for better alignment */
+            margin: 0;
         }
 
         .checkbox-group label {
-            flex: 1; /* ✅ Allows text to wrap properly */
-            font-size: 1em;
-            font-weight: 600;
+            font-size: 14px;
             color: #333;
+            line-height: 1.4;
+            flex-grow: 1;
         }
 
         button {
@@ -124,19 +128,19 @@
 
         <form id="preferences-form" style="display: none;">
             
-            <div class="input-group">
+            <div class="inline-group">
                 <label>Email:</label>
                 <span id="email-display" class="email-display"></span>
             </div>
 
-           <div class="input-group">
-            	<label for="brands">Enter pet food brands to track (optional, comma separated):</label>
-            	<input type="text" id="brands" placeholder="e.g., Brand1, Brand2, Brand3">
+            <div class="input-group">
+                <label for="brands">Enter pet food brands to track (optional, comma separated):</label>
+                <input type="text" id="brands" placeholder="e.g., Brand1, Brand2, Brand3">
             </div>
-            
+
             <div class="checkbox-group">
-            	<input type="checkbox" id="trackOnly">
-            	<label for="trackOnly">Send alerts only for my tracked brands (even if they include non-pet products)</label>
+                <input type="checkbox" id="trackOnly">
+                <label for="trackOnly">Send alerts only for my tracked brands (even if they include non-pet products)</label>
             </div>
 
             <button type="submit" id="update-btn">Update Preferences</button>
