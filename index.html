@@ -3,184 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Preferences - PetAlert</title>
+    <title>PetAlertPro - Instant Pet Food Recall Alerts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: #333;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            text-align: center;
+            overflow-y: auto; /* ✅ Prevents content cutoff */
+            padding: 20px;
         }
-
         .container {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            text-align: center;
             width: 100%;
-            max-width: 400px;
+        }
+        h1 {
+            font-size: 2.2em;
+            font-weight: 600;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        .input-group {
+            margin-top: 15px;
             text-align: left;
         }
-
-        h2 {
-            color: #333;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-        }
-
         label {
-            font-weight: bold;
-            color: #555;
+            font-size: 1em;
+            font-weight: 600;
+            color: #333;
             display: block;
             margin-bottom: 5px;
         }
-
-        .email-display {
-            font-weight: bold;
-            color: #222;
-            display: inline-block;
-        }
-
-        input, select {
+        input[type="email"], input[type="text"] {
             width: 100%;
             padding: 10px;
+            margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 14px;
+            font-size: 1em;
         }
-
         .checkbox-group {
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* ✅ Align checkbox to the top */
             margin-top: 10px;
+            text-align: left;    
         }
 
         .checkbox-group input {
-            margin-right: 8px;
+            margin-right: 10px;
+            transform: scale(1.2);
+            margin-top: 4px; /* ✅ Adjust for better alignment */
         }
 
-        button {
-            background: #007bff;
+        .checkbox-group label {
+            flex: 1; /* ✅ Allows text to wrap properly */
+            font-size: 1em;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .button {
+            background: #e74c3c;
             color: white;
-            font-size: 16px;
+            padding: 14px 28px;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background 0.3s, transform 0.2s;
             border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
             cursor: pointer;
             width: 100%;
-            margin-top: 15px;
-            transition: background 0.3s ease;
         }
-
-        button:hover {
-            background: #0056b3;
+        .button:hover {
+            background: #c0392b;
+            transform: scale(1.05);
         }
-
-        .error-message {
-            color: red;
-            font-size: 14px;
+        .why-list {
+            text-align: left;
+            font-size: 1em;
+            margin: 20px 0;
+            padding: 0 10px;
+        }
+        .why-list ul {
+            padding-left: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
             text-align: center;
-            display: none;
+            color: #555;
+        }
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h2>Update Your Preferences</h2>
+        <h1>THIS TOOL IS NOT LIVE YET 🐶🐱</h1>
+        <h1>🚨 PetAlertPro: Instant Pet Food Recall Alerts! 🐶🐱</h1>
 
-        <div id="error" class="error-message">Invalid or missing preference link.</div>
+        <div class="why-list">
+            <h2>Why PetAlertPro?</h2>
+            <ul>
+                <li>🚀 Instant pet food recall alerts</li>
+                <li>🛡️ Protects your pets from harmful food</li>
+                <li>🔎 Track specific brands or receive all alerts</li>
+                <li>📧 Get alerts directly in your inbox</li>
+                <li>💲 Affordable at just $10/month</li>
+            </ul>
+        </div>
 
-        <form id="preferences-form" style="display: none;">
-            
-            <div class="input-group">
-                <label>Email:</label>
-                <span id="email-display" class="email-display"></span>
-            </div>
+        <div class="input-group">
+            <label for="email">Enter your email:</label>
+            <input type="email" id="email" placeholder="example@email.com" required>
+        </div>
 
-            <div class="input-group">
-                <label for="brands">Enter pet food brands to track (optional, comma separated):</label>
-                <input type="text" id="brands" placeholder="e.g., Brand1, Brand2, Brand3">
-            </div>
+        <div class="input-group">
+            <label for="brands">Enter pet food brands to track (optional, comma separated):</label>
+            <input type="text" id="brands" placeholder="e.g., Brand1, Brand2, Brand3">
+        </div>
 
-            <div class="checkbox-group">
-                <input type="checkbox" id="trackOnly">
-                <label for="trackOnly">Send alerts only for my tracked brands (even if they include non-pet products)</label>
-            </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="trackOnly">
+            <label for="trackOnly">Send alerts only for my tracked brands (even if they include non-pet products)</label>
+        </div>
 
-            <button type="submit">Update Preferences</button>
-        </form>
+        <button class="button" id="subscribe-button">Get Real-Time Alerts - $10/month</button>
+
+        <div class="footer">
+            <p>&copy; 2025 PetAlertPro. All rights reserved.</p>
+            <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+        </div>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", async function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            const token = urlParams.get("token");
-            const form = document.getElementById("preferences-form");
-            const errorDiv = document.getElementById("error");
-            const emailDisplay = document.getElementById("email-display");
-            const brandsInput = document.getElementById("brands");
-            const trackOnlyCheckbox = document.getElementById("trackOnly");
+        document.getElementById("subscribe-button").addEventListener("click", function () {
+            var email = document.getElementById("email").value.trim();
+            var brands = document.getElementById("brands").value.trim();
+            var trackOnly = document.getElementById("trackOnly").checked;
 
-            if (!token) {
-                errorDiv.style.display = "block";
+            if (!email) {
+                alert("Please enter a valid email.");
                 return;
             }
 
-            // Fetch user preferences
-            try {
-                const response = await fetch(`https://petalertpro.contact-shreelabs.workers.dev/preferences?token=${token}`);
-                const data = await response.json();
+            var formData = new FormData();
+            formData.append("email", email);
+            formData.append("brands", brands);
+            formData.append("trackedOnly", trackOnly.toString());
 
-                if (data.status === "error") {
-                    errorDiv.textContent = data.message;
-                    errorDiv.style.display = "block";
+            fetch("https://petalertpro.contact-shreelabs.workers.dev/subscribe", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    window.location.href = "https://petalertpro.com/thank-you.html";
                 } else {
-                    form.style.display = "block";
-                    emailDisplay.textContent = data.email;
-                    brandsInput.value = data.brands || "";
-                    trackOnlyCheckbox.checked = data.trackedOnly === "Yes";
+                    alert(data.message || "Something went wrong. Please try again.");
                 }
-            } catch (error) {
-                errorDiv.textContent = "Failed to load preferences.";
-                errorDiv.style.display = "block";
-            }
-
-            // Handle form submission
-            form.addEventListener("submit", async function (event) {
-                event.preventDefault();
-
-                const updatedBrands = brandsInput.value.trim();
-                const updatedTrackedOnly = trackOnlyCheckbox.checked ? "true" : "false";
-
-                const formData = new FormData();
-                formData.append("token", token);
-                formData.append("brands", updatedBrands);
-                formData.append("trackedOnly", updatedTrackedOnly);
-
-                try {
-                    const response = await fetch("https://petalertpro.contact-shreelabs.workers.dev/update-preferences", {
-                        method: "POST",
-                        body: formData
-                    });
-
-                    const result = await response.json();
-                    if (result.status === "success") {
-                        alert("Preferences updated successfully!");
-                    } else {
-                        alert("Error updating preferences: " + result.message);
-                    }
-                } catch (error) {
-                    alert("Network error. Please try again.");
-                }
+            })
+            .catch(error => {
+                alert("Failed to submit. Please try again later.");
+                console.error("Error:", error);
             });
         });
     </script>
