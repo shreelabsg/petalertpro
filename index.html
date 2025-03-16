@@ -17,8 +17,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             text-align: center;
+            overflow-y: auto; /* ✅ Prevents content cutoff */
+            padding: 20px;
         }
         .container {
             max-width: 600px;
@@ -27,17 +29,13 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             border-radius: 12px;
             text-align: center;
+            width: 100%;
         }
         h1 {
-            font-size: 2.5em;
+            font-size: 2.2em;
             font-weight: 600;
             color: #e74c3c;
             margin-bottom: 10px;
-        }
-        .description {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            color: #2c3e50;
         }
         .input-group {
             margin-top: 15px;
@@ -60,13 +58,24 @@
         }
         .checkbox-group {
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* ✅ Align checkbox to the top */
             margin-top: 10px;
+            text-align: left;    
         }
+
         .checkbox-group input {
             margin-right: 10px;
             transform: scale(1.2);
+            margin-top: 4px; /* ✅ Adjust for better alignment */
         }
+
+        .checkbox-group label {
+            flex: 1; /* ✅ Allows text to wrap properly */
+            font-size: 1em;
+            font-weight: 600;
+            color: #333;
+        }
+        
         .button {
             background: #e74c3c;
             color: white;
@@ -80,10 +89,20 @@
             transition: background 0.3s, transform 0.2s;
             border: none;
             cursor: pointer;
+            width: 100%;
         }
         .button:hover {
             background: #c0392b;
             transform: scale(1.05);
+        }
+        .why-list {
+            text-align: left;
+            font-size: 1em;
+            margin: 20px 0;
+            padding: 0 10px;
+        }
+        .why-list ul {
+            padding-left: 20px;
         }
         .footer {
             margin-top: 20px;
@@ -104,7 +123,17 @@
     <div class="container">
         <h1>THIS TOOL IS NOT LIVE YET 🐶🐱</h1>
         <h1>🚨 PetAlertPro: Instant Pet Food Recall Alerts! 🐶🐱</h1>
-        <p class="description">Stay informed about pet food recalls and contamination risks. Ensure your pet's safety with real-time alerts.</p>
+
+        <div class="why-list">
+            <h2>Why PetAlertPro?</h2>
+            <ul>
+                <li>🚀 Instant pet food recall alerts</li>
+                <li>🛡️ Protects your pets from harmful food</li>
+                <li>🔎 Track specific brands or receive all alerts</li>
+                <li>📧 Get alerts directly in your inbox</li>
+                <li>💲 Affordable at just $10/month</li>
+            </ul>
+        </div>
 
         <div class="input-group">
             <label for="email">Enter your email:</label>
@@ -133,19 +162,19 @@
         document.getElementById("subscribe-button").addEventListener("click", function () {
             var email = document.getElementById("email").value.trim();
             var brands = document.getElementById("brands").value.trim();
-            var trackOnly = document.getElementById("trackOnly").checked;  // ✅ Get checkbox value
-    
+            var trackOnly = document.getElementById("trackOnly").checked;
+
             if (!email) {
                 alert("Please enter a valid email.");
                 return;
             }
-    
+
             var formData = new FormData();
             formData.append("email", email);
             formData.append("brands", brands);
-            formData.append("trackedOnly", trackOnly.toString());  // ✅ Send checkbox value as "true" or "false"
-    
-            fetch("https://petalertpro.contact-shreelabs.workers.dev/", {  // ✅ Cloudflare Worker URL
+            formData.append("trackedOnly", trackOnly.toString());
+
+            fetch("https://petalertpro.contact-shreelabs.workers.dev/", {
                 method: "POST",
                 body: formData
             })
