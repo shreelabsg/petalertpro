@@ -183,7 +183,7 @@
                 if (data.status === "success") {
                     window.location.href = "https://petalertpro.com/thank-you.html";
                 } else {
-                    alert("Error: " + (data.message || "Something went wrong."));
+                    alert(data.message || "Something went wrong. Please try again.");
                 }
             })
             .catch(error => {
