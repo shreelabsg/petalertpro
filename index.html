@@ -58,6 +58,15 @@
             border-radius: 5px;
             font-size: 1em;
         }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .checkbox-group input {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
         .button {
             background: #e74c3c;
             color: white;
@@ -107,6 +116,11 @@
             <input type="text" id="brands" placeholder="e.g., Brand1, Brand2, Brand3">
         </div>
 
+        <div class="checkbox-group">
+            <input type="checkbox" id="trackOnly">
+            <label for="trackOnly">Send alerts only for my tracked brands</label>
+        </div>
+
         <button class="button" id="subscribe-button">Get Real-Time Alerts - $10/month</button>
 
         <div class="footer">
@@ -117,36 +131,37 @@
 
     <script>
         document.getElementById("subscribe-button").addEventListener("click", function () {
-        var email = document.getElementById("email").value.trim();
-        var brands = document.getElementById("brands").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var brands = document.getElementById("brands").value.trim();
+            var trackOnly = document.getElementById("trackOnly").checked;  // ✅ Get checkbox value
     
-        if (!email) {
-            alert("Please enter a valid email.");
-            return;
-        }
-    
-        var formData = new FormData();
-        formData.append("email", email);
-        formData.append("brands", brands);
-    
-        fetch("https://petalertpro.contact-shreelabs.workers.dev/", {  // ✅ Updated to use Cloudflare Worker
-            method: "POST",
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === "success") {
-                window.location.href = "https://petalertpro.com/thank-you.html";
-            } else {
-                alert("Error: " + (data.message || "Something went wrong."));
+            if (!email) {
+                alert("Please enter a valid email.");
+                return;
             }
-        })
-        .catch(error => {
-            alert("Failed to submit. Please try again later.");
-            console.error("Error:", error);
+    
+            var formData = new FormData();
+            formData.append("email", email);
+            formData.append("brands", brands);
+            formData.append("trackedOnly", trackOnly.toString());  // ✅ Send checkbox value as "true" or "false"
+    
+            fetch("https://petalertpro.contact-shreelabs.workers.dev/", {  // ✅ Cloudflare Worker URL
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    window.location.href = "https://petalertpro.com/thank-you.html";
+                } else {
+                    alert("Error: " + (data.message || "Something went wrong."));
+                }
+            })
+            .catch(error => {
+                alert("Failed to submit. Please try again later.");
+                console.error("Error:", error);
+            });
         });
-    });
-
     </script>
 
 </body>
