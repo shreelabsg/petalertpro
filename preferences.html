@@ -18,11 +18,11 @@
 
         .container {
             background: #ffffff;
-            padding: 25px;
+            padding: 30px;
             border-radius: 8px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 400px;
+            max-width: 500px; /* 🔹 Increased width */
             text-align: left;
         }
 
@@ -90,6 +90,15 @@
             text-align: center;
             display: none;
         }
+
+        /* 🔹 Loader styling */
+        .loading {
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #007bff;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -98,6 +107,7 @@
         <h2>Update Your Preferences</h2>
 
         <div id="error" class="error-message">Invalid or missing preference link.</div>
+        <div id="loading" class="loading">Processing... Please wait.</div>
 
         <form id="preferences-form" style="display: none;">
             
@@ -116,7 +126,7 @@
                 <label for="trackOnly">Send alerts only for my tracked brands (even if they include non-pet products)</label>
             </div>
 
-            <button type="submit">Update Preferences</button>
+            <button type="submit" id="update-btn">Update Preferences</button>
         </form>
     </div>
 
@@ -126,14 +136,22 @@
             const token = urlParams.get("token");
             const form = document.getElementById("preferences-form");
             const errorDiv = document.getElementById("error");
+            const loadingDiv = document.getElementById("loading");
             const emailDisplay = document.getElementById("email-display");
             const brandsInput = document.getElementById("brands");
             const trackOnlyCheckbox = document.getElementById("trackOnly");
+            const updateBtn = document.getElementById("update-btn");
 
             if (!token) {
                 errorDiv.style.display = "block";
                 return;
             }
+
+            // 🔹 Show loading state & disable form elements
+            loadingDiv.style.display = "block";
+            updateBtn.disabled = true;
+            brandsInput.disabled = true;
+            trackOnlyCheckbox.disabled = true;
 
             // Fetch user preferences
             try {
@@ -152,6 +170,12 @@
             } catch (error) {
                 errorDiv.textContent = "Failed to load preferences.";
                 errorDiv.style.display = "block";
+            } finally {
+                // 🔹 Hide loading state & enable inputs
+                loadingDiv.style.display = "none";
+                updateBtn.disabled = false;
+                brandsInput.disabled = false;
+                trackOnlyCheckbox.disabled = false;
             }
 
             // Handle form submission
@@ -165,6 +189,12 @@
                 formData.append("token", token);
                 formData.append("brands", updatedBrands);
                 formData.append("trackedOnly", updatedTrackedOnly);
+
+                // 🔹 Show loading state & disable form elements
+                loadingDiv.style.display = "block";
+                updateBtn.disabled = true;
+                brandsInput.disabled = true;
+                trackOnlyCheckbox.disabled = true;
 
                 try {
                     const response = await fetch("https://petalertpro.contact-shreelabs.workers.dev/update-preferences", {
@@ -180,6 +210,12 @@
                     }
                 } catch (error) {
                     alert("Network error. Please try again.");
+                } finally {
+                    // 🔹 Hide loading state & enable inputs
+                    loadingDiv.style.display = "none";
+                    updateBtn.disabled = false;
+                    brandsInput.disabled = false;
+                    trackOnlyCheckbox.disabled = false;
                 }
             });
         });
