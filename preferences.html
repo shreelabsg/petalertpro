@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Preferences - PetAlert</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; text-align: center; }
+        .container { max-width: 400px; margin: auto; display: none; }
+        label { display: block; margin-top: 10px; text-align: left; }
+        input, button { width: 100%; padding: 8px; margin-top: 5px; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+
+    <h2>Update Your Preferences</h2>
+    <p id="status"></p>
+
+    <div class="container" id="preferenceForm">
+        <label>Email:</label>
+        <input type="email" id="email" readonly>
+
+        <label>Tracked Brands (comma-separated):</label>
+        <input type="text" id="brands">
+
+        <label>
+            <input type="checkbox" id="trackedOnly"> Send alerts only for tracked brands
+        </label>
+
+        <button onclick="updatePreferences()">Update Preferences</button>
+    </div>
+
+    <script>
+        const API_BASE_URL = "https://petalertpro.contact-shreelabs.workers.dev";
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        if (!token) {
+            document.getElementById("status").innerHTML = '<p class="error">Invalid or missing preference link.</p>';
+        } else {
+            fetch(`${API_BASE_URL}/preferences?token=${token}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        document.getElementById("email").value = data.email;
+                        document.getElementById("brands").value = data.brands;
+                        document.getElementById("trackedOnly").checked = (data.trackedOnly === "Yes");
+
+                        // ✅ Show form if token is valid
+                        document.getElementById("preferenceForm").style.display = "block";
+                    } else {
+                        document.getElementById("status").innerHTML = '<p class="error">' + data.message + '</p>';
+                    }
+                })
+                .catch(error => {
+                    document.getElementById("status").innerHTML = '<p class="error">Error fetching preferences.</p>';
+                });
+        }
+
+        function updatePreferences() {
+            const brands = document.getElementById("brands").value.trim();
+            const trackedOnly = document.getElementById("trackedOnly").checked ? "true" : "false";
+
+            fetch(`${API_BASE_URL}/update-preferences`, {
+                method: "POST",
+                body: new URLSearchParams({ token, brands, trackedOnly })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    document.getElementById("status").innerHTML = '<p class="success">Preferences updated successfully!</p>';
+                } else {
+                    document.getElementById("status").innerHTML = '<p class="error">' + data.message + '</p>';
+                }
+            })
+            .catch(error => {
+                document.getElementById("status").innerHTML = '<p class="error">Error updating preferences.</p>';
+            });
+        }
+    </script>
+
+</body>
+</html>
