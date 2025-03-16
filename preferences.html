@@ -5,80 +5,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Preferences - PetAlert</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; text-align: center; }
-        .container { max-width: 400px; margin: auto; display: none; }
-        label { display: block; margin-top: 10px; text-align: left; }
-        input, button { width: 100%; padding: 8px; margin-top: 5px; }
-        .error { color: red; }
-        .success { color: green; }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .email-label {
+            font-weight: normal;
+            color: #222;
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
     </style>
 </head>
 <body>
 
-    <h2>Update Your Preferences</h2>
-    <p id="status"></p>
+    <div class="container">
+        <h2>Update Your Preferences</h2>
+        
+        <div id="error" class="error-message">Invalid or missing preference link.</div>
 
-    <div class="container" id="preferenceForm">
-        <label>Email:</label>
-        <input type="email" id="email" readonly>
+        <form id="preferences-form" style="display: none;">
+            
+            <div class="form-group">
+                <label>Email: <span id="email-display" class="email-label"></span></label>
+            </div>
 
-        <label>Tracked Brands (comma-separated):</label>
-        <input type="text" id="brands">
+            <div class="form-group">
+                <label for="brands">Track Brands:</label>
+                <input type="text" id="brands" placeholder="Enter brands (comma-separated)">
+            </div>
 
-        <label>
-            <input type="checkbox" id="trackedOnly"> Send alerts only for tracked brands
-        </label>
+            <div class="form-group">
+                <label for="trackedOnly">Only receive alerts for tracked brands:</label>
+                <select id="trackedOnly">
+                    <option value="false">No</option>
+                    <option value="true">Yes</option>
+                </select>
+            </div>
 
-        <button onclick="updatePreferences()">Update Preferences</button>
+            <button type="submit">Update Preferences</button>
+        </form>
     </div>
 
     <script>
-        const API_BASE_URL = "https://petalertpro.contact-shreelabs.workers.dev";
-        const urlParams = new URLSearchParams(window.location.search);
-        const token = urlParams.get('token');
+        document.addEventListener("DOMContentLoaded", async function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get("token");
+            const form = document.getElementById("preferences-form");
+            const errorDiv = document.getElementById("error");
+            const emailDisplay = document.getElementById("email-display");
+            const brandsInput = document.getElementById("brands");
+            const trackedOnlySelect = document.getElementById("trackedOnly");
 
-        if (!token) {
-            document.getElementById("status").innerHTML = '<p class="error">Invalid or missing preference link.</p>';
-        } else {
-            fetch(`${API_BASE_URL}/preferences?token=${token}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === "success") {
-                        document.getElementById("email").value = data.email;
-                        document.getElementById("brands").value = data.brands;
-                        document.getElementById("trackedOnly").checked = (data.trackedOnly === "Yes");
+            if (!token) {
+                errorDiv.style.display = "block";
+                return;
+            }
 
-                        // ✅ Show form if token is valid
-                        document.getElementById("preferenceForm").style.display = "block";
-                    } else {
-                        document.getElementById("status").innerHTML = '<p class="error">' + data.message + '</p>';
-                    }
-                })
-                .catch(error => {
-                    document.getElementById("status").innerHTML = '<p class="error">Error fetching preferences.</p>';
-                });
-        }
+            // Fetch user preferences
+            try {
+                const response = await fetch(`https://petalertpro.contact-shreelabs.workers.dev/preferences?token=${token}`);
+                const data = await response.json();
 
-        function updatePreferences() {
-            const brands = document.getElementById("brands").value.trim();
-            const trackedOnly = document.getElementById("trackedOnly").checked ? "true" : "false";
-
-            fetch(`${API_BASE_URL}/update-preferences`, {
-                method: "POST",
-                body: new URLSearchParams({ token, brands, trackedOnly })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === "success") {
-                    document.getElementById("status").innerHTML = '<p class="success">Preferences updated successfully!</p>';
+                if (data.status === "error") {
+                    errorDiv.textContent = data.message;
+                    errorDiv.style.display = "block";
                 } else {
-                    document.getElementById("status").innerHTML = '<p class="error">' + data.message + '</p>';
+                    form.style.display = "block";
+                    emailDisplay.textContent = data.email;
+                    brandsInput.value = data.brands || "";
+                    trackedOnlySelect.value = data.trackedOnly === "Yes" ? "true" : "false";
                 }
-            })
-            .catch(error => {
-                document.getElementById("status").innerHTML = '<p class="error">Error updating preferences.</p>';
+            } catch (error) {
+                errorDiv.textContent = "Failed to load preferences.";
+                errorDiv.style.display = "block";
+            }
+
+            // Handle form submission
+            form.addEventListener("submit", async function (event) {
+                event.preventDefault();
+
+                const updatedBrands = brandsInput.value.trim();
+                const updatedTrackedOnly = trackedOnlySelect.value;
+
+                const formData = new FormData();
+                formData.append("token", token);
+                formData.append("brands", updatedBrands);
+                formData.append("trackedOnly", updatedTrackedOnly);
+
+                try {
+                    const response = await fetch("https://petalertpro.contact-shreelabs.workers.dev/update-preferences", {
+                        method: "POST",
+                        body: formData
+                    });
+
+                    const result = await response.json();
+                    if (result.status === "success") {
+                        alert("Preferences updated successfully!");
+                    } else {
+                        alert("Error updating preferences: " + result.message);
+                    }
+                } catch (error) {
+                    alert("Network error. Please try again.");
+                }
             });
-        }
+        });
     </script>
 
 </body>
