@@ -38,10 +38,8 @@
         const token = urlParams.get('token');
 
         if (!token) {
-            alert("no token")
             document.getElementById("status").innerHTML = '<p class="error">Invalid or missing preference link.</p>';
         } else {
-            alert(token)
             fetch(`${API_BASE_URL}/preferences?token=${token}`)
                 .then(response => response.json())
                 .then(data => {
