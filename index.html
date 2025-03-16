@@ -117,34 +117,36 @@
 
     <script>
         document.getElementById("subscribe-button").addEventListener("click", function () {
-            var email = document.getElementById("email").value.trim();
-            var brands = document.getElementById("brands").value.trim();
-
-            if (!email) {
-                alert("Please enter a valid email.");
-                return;
+        var email = document.getElementById("email").value.trim();
+        var brands = document.getElementById("brands").value.trim();
+    
+        if (!email) {
+            alert("Please enter a valid email.");
+            return;
+        }
+    
+        var formData = new FormData();
+        formData.append("email", email);
+        formData.append("brands", brands);
+    
+        fetch("https://petalertpro.contact-shreelabs.workers.dev/", {  // ✅ Updated to use Cloudflare Worker
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                window.location.href = "https://petalertpro.com/thank-you.html";
+            } else {
+                alert("Error: " + (data.message || "Something went wrong."));
             }
-
-            fetch("https://petalertpro.contact-shreelabs.workers.dev/", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ email: email, brands: brands })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === "success") {
-                    window.location.href = "https://petalertpro.com/thank-you.html";
-                } else {
-                    alert("Error: " + (data.message || "Something went wrong."));
-                }
-            })
-            .catch(error => {
-                alert("Failed to submit. Please try again later.");
-                console.error("Error:", error);
-            });
+        })
+        .catch(error => {
+            alert("Failed to submit. Please try again later.");
+            console.error("Error:", error);
         });
+    });
+
     </script>
 
 </body>
