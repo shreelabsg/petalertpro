@@ -23,16 +23,16 @@
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
-            text-align: center;
+            text-align: left;
         }
 
         h2 {
             color: #333;
             margin-bottom: 20px;
+            text-align: center;
         }
 
-        .form-group {
-            text-align: left;
+        .input-group {
             margin-bottom: 15px;
         }
 
@@ -43,11 +43,10 @@
             margin-bottom: 5px;
         }
 
-        .email-label {
-            font-weight: normal;
+        .email-display {
+            font-weight: bold;
             color: #222;
             display: inline-block;
-            margin-left: 5px;
         }
 
         input, select {
@@ -56,6 +55,16 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 14px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .checkbox-group input {
+            margin-right: 8px;
         }
 
         button {
@@ -78,6 +87,7 @@
         .error-message {
             color: red;
             font-size: 14px;
+            text-align: center;
             display: none;
         }
     </style>
@@ -86,26 +96,24 @@
 
     <div class="container">
         <h2>Update Your Preferences</h2>
-        
+
         <div id="error" class="error-message">Invalid or missing preference link.</div>
 
         <form id="preferences-form" style="display: none;">
             
-            <div class="form-group">
-                <label>Email: <span id="email-display" class="email-label"></span></label>
+            <div class="input-group">
+                <label>Email:</label>
+                <span id="email-display" class="email-display"></span>
             </div>
 
-            <div class="form-group">
-                <label for="brands">Track Brands:</label>
-                <input type="text" id="brands" placeholder="Enter brands (comma-separated)">
+            <div class="input-group">
+                <label for="brands">Enter pet food brands to track (optional, comma separated):</label>
+                <input type="text" id="brands" placeholder="e.g., Brand1, Brand2, Brand3">
             </div>
 
-            <div class="form-group">
-                <label for="trackedOnly">Only receive alerts for tracked brands:</label>
-                <select id="trackedOnly">
-                    <option value="false">No</option>
-                    <option value="true">Yes</option>
-                </select>
+            <div class="checkbox-group">
+                <input type="checkbox" id="trackOnly">
+                <label for="trackOnly">Send alerts only for my tracked brands (even if they include non-pet products)</label>
             </div>
 
             <button type="submit">Update Preferences</button>
@@ -120,7 +128,7 @@
             const errorDiv = document.getElementById("error");
             const emailDisplay = document.getElementById("email-display");
             const brandsInput = document.getElementById("brands");
-            const trackedOnlySelect = document.getElementById("trackedOnly");
+            const trackOnlyCheckbox = document.getElementById("trackOnly");
 
             if (!token) {
                 errorDiv.style.display = "block";
@@ -139,7 +147,7 @@
                     form.style.display = "block";
                     emailDisplay.textContent = data.email;
                     brandsInput.value = data.brands || "";
-                    trackedOnlySelect.value = data.trackedOnly === "Yes" ? "true" : "false";
+                    trackOnlyCheckbox.checked = data.trackedOnly === "Yes";
                 }
             } catch (error) {
                 errorDiv.textContent = "Failed to load preferences.";
@@ -151,7 +159,7 @@
                 event.preventDefault();
 
                 const updatedBrands = brandsInput.value.trim();
-                const updatedTrackedOnly = trackedOnlySelect.value;
+                const updatedTrackedOnly = trackOnlyCheckbox.checked ? "true" : "false";
 
                 const formData = new FormData();
                 formData.append("token", token);
