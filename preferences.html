@@ -60,20 +60,22 @@
 
         .checkbox-group {
             display: flex;
-            align-items: flex-start;
-            gap: 10px;
+            align-items: flex-start; /* ✅ Align checkbox to the top */
             margin-top: 10px;
+            text-align: left;    
         }
 
         .checkbox-group input {
-            margin-top: 5px;
+            margin-right: 10px;
+            transform: scale(1.2);
+            margin-top: 4px; /* ✅ Adjust for better alignment */
         }
 
         .checkbox-group label {
-            flex-grow: 1;
-            font-size: 14px;
+            flex: 1; /* ✅ Allows text to wrap properly */
+            font-size: 1em;
+            font-weight: 600;
             color: #333;
-            line-height: 1.4;
         }
 
         button {
