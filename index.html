@@ -174,7 +174,7 @@
             formData.append("brands", brands);
             formData.append("trackedOnly", trackOnly.toString());
 
-            fetch("https://petalertpro.contact-shreelabs.workers.dev/", {
+            fetch("https://petalertpro.contact-shreelabs.workers.dev/subscribe", {
                 method: "POST",
                 body: formData
             })
