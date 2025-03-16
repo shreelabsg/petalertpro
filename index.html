@@ -93,7 +93,7 @@
 </head>
 <body>
     <div class="container">
-         <h1>THIS TOOL IS NOT LIVE YET 🐶🐱</h1>
+        <h1>THIS TOOL IS NOT LIVE YET 🐶🐱</h1>
         <h1>🚨 PetAlertPro: Instant Pet Food Recall Alerts! 🐶🐱</h1>
         <p class="description">Stay informed about pet food recalls and contamination risks. Ensure your pet's safety with real-time alerts.</p>
 
@@ -116,37 +116,36 @@
     </div>
 
     <script>
-            document.getElementById("subscribe-button").addEventListener("click", function () {
-                var email = document.getElementById("email").value.trim();
-                var brands = document.getElementById("brands").value.trim();
-            
-                if (!email) {
-                    alert("Please enter a valid email.");
-                    return;
+        document.getElementById("subscribe-button").addEventListener("click", function () {
+            var email = document.getElementById("email").value.trim();
+            var brands = document.getElementById("brands").value.trim();
+
+            if (!email) {
+                alert("Please enter a valid email.");
+                return;
+            }
+
+            fetch("https://petalertpro.contact-shreelabs.workers.dev/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email: email, brands: brands })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    window.location.href = "https://petalertpro.com/thank-you.html";
+                } else {
+                    alert("Error: " + (data.message || "Something went wrong."));
                 }
-            
-                var formData = new FormData();
-                formData.append("email", email);
-                formData.append("brands", brands);
-            
-                fetch("https://script.google.com/macros/s/AKfycby0j0E4gsJOEDVcBkc8drFGjcl_utLJu0ST6xHn0fmKI8_gypPs8sbmXfKlNpSSjp_N/exec", {
-                    method: "POST",
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === "success") {
-                        window.location.href = "https://petalertpro.com/thank-you.html";
-                    } else {
-                        alert("Error: " + (data.message || "Something went wrong."));
-                    }
-                })
-                .catch(error => {
-                    alert("Failed to submit. Please try again later.");
-                    console.error("Error:", error);
-                });
+            })
+            .catch(error => {
+                alert("Failed to submit. Please try again later.");
+                console.error("Error:", error);
             });
-</script>
+        });
+    </script>
 
 </body>
 </html>
