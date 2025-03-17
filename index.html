@@ -193,7 +193,11 @@
                 });
 
                 let data = await response.json();
-                if (data.status === "success") {
+                if (data.status === 503) {
+                  // Redirect to the maintenance page
+                  window.location.href = "/maintenance.html";
+                }
+                else if (data.status === "success") {
                     window.location.href = "https://petalertpro.com/thank-you.html";
                 } else {
                     alert(data.message || "Something went wrong. Please try again.");
