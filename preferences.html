@@ -223,7 +223,7 @@
                     });
 
                     const result = await response.json();
-                    if (data.status === "503") {
+                    if (result.status === "503") {
                       // Redirect to the maintenance page
                       window.location.href = "/maintenance.html";
                     }
