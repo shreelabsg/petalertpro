@@ -8,6 +8,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="config.js?v=1"></script>
     <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+    <script type="text/javascript">
+      Paddle.Environment.set(PADDLE_MODE);
+        Paddle.Initialize({ 
+            token: CLIENT_TOKEN // replace with a client-side token
+          });
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
