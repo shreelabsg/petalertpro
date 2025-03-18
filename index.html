@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="config.js?v=1"></script>
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -173,57 +174,64 @@
     </div>
 
     <script>
-        document.getElementById("subscribe-button").addEventListener("click", async function () {
-            var email = document.getElementById("email").value.trim();
-            var brands = document.getElementById("brands").value.trim();
-            var trackOnly = document.getElementById("trackOnly").checked;
+    document.getElementById("subscribe-button").addEventListener("click", async function () {
+        var email = document.getElementById("email").value.trim();
+        var brands = document.getElementById("brands").value.trim();
+        var trackOnly = document.getElementById("trackOnly").checked;
 
-            if (!email) {
-                alert("Please enter a valid email.");
-                return;
-            }
+        if (!email) {
+            alert("Please enter a valid email.");
+            return;
+        }
 
-            // Disable inputs and show processing message
-            document.getElementById("subscribe-button").disabled = true;
-            document.getElementById("email").disabled = true;
-            document.getElementById("brands").disabled = true;
-            document.getElementById("trackOnly").disabled = true;
-            document.getElementById("loading").style.display = "block";
+        document.getElementById("subscribe-button").disabled = true;
+        document.getElementById("email").disabled = true;
+        document.getElementById("brands").disabled = true;
+        document.getElementById("trackOnly").disabled = true;
+        document.getElementById("loading").style.display = "block";
 
-            try {
-                var formData = new FormData();
-                formData.append("email", email);
-                formData.append("brands", brands);
-                formData.append("trackedOnly", trackOnly.toString());
+        try {
+            Paddle.Checkout.open({
+                price: CONFIG.PADDLE_PRICE_ID, // ✅ Use Price ID instead of Product ID
+                email: email,
+                successCallback: async function (data) {
+                    try {
+                        var formData = new FormData();
+						formData.append("email", email);
+						formData.append("brands", brands);
+						formData.append("trackedOnly", trackOnly.toString());
 
-                let response = await apiRequest("/subscribe", {
-                    method: "POST",
-                    body: formData
-                });
+						let response = await apiRequest("/subscribe", {
+							method: "POST",
+							body: formData
+						});
 
-                let data = await response.json();
-                if (data.status === "503") {
-                  // Redirect to the maintenance page
-                  window.location.href = "/maintenance.html";
+						let data = await response.json();
+						if (data.status === "503") {
+						  // Redirect to the maintenance page
+						  window.location.href = "/maintenance.html";
+						}
+						else if (data.status === "success") {
+							window.location.href = "https://petalertpro.com/thank-you.html";
+						} else {
+							alert(data.message || "Something went wrong. Please try again.");
+						}
+                    } catch (error) {
+                        alert("Failed to subscribe. If your payment was successfull, please contact us " + CONFIG.SUPPORT_EMAIL);
+                    }
                 }
-                else if (data.status === "success") {
-                    window.location.href = "https://petalertpro.com/thank-you.html";
-                } else {
-                    alert(data.message || "Something went wrong. Please try again.");
-                }
-            } catch (error) {
-                alert("Failed to submit. Please try again later.");
-                console.error("Error:", error);
-            } finally {
-                // Re-enable inputs and hide loading message
-                document.getElementById("subscribe-button").disabled = false;
-                document.getElementById("email").disabled = false;
-                document.getElementById("brands").disabled = false;
-                document.getElementById("trackOnly").disabled = false;
-                document.getElementById("loading").style.display = "none";
-            }
-        });
-    </script>
+            });
+        } catch (error) {
+            alert("Paddle checkout failed. Please try again.");
+        } finally {
+            document.getElementById("subscribe-button").disabled = false;
+            document.getElementById("email").disabled = false;
+            document.getElementById("brands").disabled = false;
+            document.getElementById("trackOnly").disabled = false;
+            document.getElementById("loading").style.display = "none";
+        }
+    });
+</script>
 
 </body>
 </html>
