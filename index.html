@@ -192,7 +192,7 @@
 
         try {
             Paddle.Checkout.open({
-                price: CONFIG.PADDLE_PRICE_ID, // ✅ Use Price ID instead of Product ID
+                price: PADDLE_PRICE_ID, // ✅ Use Price ID instead of Product ID
                 email: email,
                 successCallback: async function (data) {
                     try {
@@ -217,7 +217,7 @@
 							alert(data.message || "Something went wrong. Please try again.");
 						}
                     } catch (error) {
-                        alert("Failed to subscribe. If your payment was successfull, please contact us " + CONFIG.SUPPORT_EMAIL);
+                        alert("Failed to subscribe. If your payment was successfull, please contact us " + SUPPORT_EMAIL);
                     }
                 }
             });
