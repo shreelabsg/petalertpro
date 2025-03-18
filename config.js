@@ -9,8 +9,8 @@ const API_BASE_URL = isStaging
   : "https://petalertpro.contact-shreelabs.workers.dev";
 
 // Paddle Configuration (No direct Paddle reference here)
-const PADDLE_SANDBOX_PRICE_ID = "pro_01jpm9qccy1m6r8wtf2m4e1vgf"; // ✅ Sandbox Price ID
-const PADDLE_LIVE_PRICE_ID = "pro_01jpa33a3x17h693xhmv71g3c9"; // ✅ Live Price ID
+const PADDLE_SANDBOX_PRICE_ID = "pri_01jpm9zbzcst31xfzanqk4y6ms"; // ✅ Sandbox Price ID
+const PADDLE_LIVE_PRICE_ID = "pri_01jpm9ze2ry6f9rfk7gs7grcaq"; // ✅ Live Price ID
 
 const PADDLE_SANDBOX_CLIENT_TOKEN = "test_cbc599ae07d129ebca777da129d"; // 
 const PADDLE_LIVE_CLIENT_TOKEN = "live_85cadfbd55315b2bf3f4bc58653"; // 
