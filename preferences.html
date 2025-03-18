@@ -177,7 +177,11 @@
                 const response = await apiRequest(`/preferences?token=${token}`);
                 const data = await response.json();
 
-                if (data.status === "error") {
+                if (data.status === "503") {
+                  // Redirect to the maintenance page
+                  window.location.href = "/maintenance.html";
+                }
+                else if (data.status === "error") {
                     errorDiv.textContent = data.message;
                     errorDiv.style.display = "block";
                 } else {
@@ -219,7 +223,11 @@
                     });
 
                     const result = await response.json();
-                    if (result.status === "success") {
+                    if (data.status === "503") {
+                      // Redirect to the maintenance page
+                      window.location.href = "/maintenance.html";
+                    }
+                    else if (result.status === "success") {
                         alert("Preferences updated successfully!");
                     } else {
                         alert("Error updating preferences: " + result.message);
