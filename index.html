@@ -231,7 +231,7 @@
             }
         });
 
-        async paymentCallback (data) {
+        async function paymentCallback (data) {
         	var email = document.getElementById("email").value.trim();
         	var brands = document.getElementById("brands").value.trim();
         	var trackOnly = document.getElementById("trackOnly").checked;
