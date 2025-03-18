@@ -2,6 +2,7 @@
 const isStaging = window.location.hostname.includes("staging");
 const paddleMode = "S"
 
+const SUPPORT_EMAIL = "contact.shreelabs@gmail.com";
 // Define Cloudflare API base URLs
 const API_BASE_URL = isStaging
   ? "https://staging-petalertpro.contact-shreelabs.workers.dev"
