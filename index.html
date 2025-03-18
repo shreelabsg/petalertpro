@@ -194,6 +194,12 @@
             Paddle.Checkout.open({
                 price: PADDLE_PRICE_ID, // ✅ Use Price ID instead of Product ID
                 email: email,
+		items: [
+			{
+			  priceId: PADDLE_PRICE_ID,
+			  quantity: 1
+			}],
+		customer: { Email: email }	
                 successCallback: async function (data) {
                     try {
                         var formData = new FormData();
