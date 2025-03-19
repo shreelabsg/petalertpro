@@ -271,6 +271,14 @@
             			alert(data.message || "Something went wrong. Please try again.");
             		}
                 }
+                else if (data.name == "checkout.payment.failed") {
+                     alert("Payment failed. Please check your details and try again.");
+                     console.error("Payment failed:", data);
+                }
+                else if (data.name == "checkout.error" || data.name == "checkout.warning") {
+                     alert("An warning/error: +" data.message +  " Please try again later.");
+                     console.error("Payment failed:", data);
+                }
                 else
                 {
                     console.log(data);
