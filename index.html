@@ -257,12 +257,12 @@
             		formData.append("trackedOnly", trackOnly.toString());
                     formData.append("customerId", event.data.customer.id);
             
-            		let response = await apiRequest("/subscribe", {
+            		let response1 = await apiRequest("/subscribe", {
             			method: "POST",
             			body: formData
             		});
             
-            		let response = await response.json();
+            		let response = await response1.json();
             		if (response.status === "503") {
             		  // Redirect to the maintenance page
             		  window.location.href = "/maintenance.html";
