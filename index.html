@@ -252,10 +252,10 @@
         	try {
                 if (data.name == "checkout.completed") {
                     var formData = new FormData();
-            		formData.append("email", data.customer.email);
+            		formData.append("email", data.data.customer.email);
             		formData.append("brands", brands);
             		formData.append("trackedOnly", trackOnly.toString());
-                    formData.append("customerId", data.customer.id);
+                    formData.append("customerId", data.data.customer.id);
             
             		let response = await apiRequest("/subscribe", {
             			method: "POST",
