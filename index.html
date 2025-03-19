@@ -249,7 +249,7 @@
         	document.getElementById("loading").style.display = "block";
         
         	try {
-                if (data.name == "checkout.completed") {
+                if (data.name == "checkout.completed" || (data.name == "checkout.closed" && data.status == "completed")) {
                     var formData = new FormData();
             		formData.append("email", email);
             		formData.append("brands", brands);
