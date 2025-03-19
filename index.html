@@ -248,7 +248,7 @@
         	document.getElementById("brands").disabled = true;
         	document.getElementById("trackOnly").disabled = true;
         	document.getElementById("loading").style.display = "block";
-        
+            console.log(data);
         	try {
                 if (data.name == "checkout.completed") {
                     var formData = new FormData();
