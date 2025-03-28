@@ -1,1 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - PetAlertPro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1, h2 {
+            color: #e74c3c;
+            text-align: center;
+        }
+        h2 {
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+        .faq-answer {
+            display: none;
+            padding-top: 10px;
+        }
+        .faq-question:hover {
+            color: #e74c3c;
+        }
+        .home-button {
+            background: #e74c3c;
+            color: #fff;
+            padding: 12px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 30px;
+        }
+        .home-button:hover {
+            background: #c0392b;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var questions = document.querySelectorAll(".faq-question");
+            questions.forEach(function(question) {
+                question.addEventListener("click", function() {
+                    var answer = this.nextElementSibling;
+                    answer.style.display = answer.style.display === "block" ? "none" : "block";
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Frequently Asked Questions</h1>
+        
+        <div class="faq-item">
+            <p class="faq-question">❓ What is PetAlertPro?</p>
+            <p class="faq-answer">PetAlertPro is a subscription-based pet food recall alert service. We track recalls from official sources like the FDA and notify subscribers via email.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">📢 How does PetAlertPro work?</p>
+            <p class="faq-answer">We scan official recall sources every 2 hours. If a recall matches the brands you track, you receive an email with all the details.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">💲 How much does it cost?</p>
+            <p class="faq-answer">Our service is $10 per month, managed through Paddle.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">❌ How do I cancel my subscription?</p>
+            <p class="faq-answer">You can cancel anytime via the Paddle subscription link you received in your email. After canceling, you will still receive alerts until your billing cycle ends.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">📧 How do I unsubscribe from emails?</p>
+            <p class="faq-answer">If you no longer wish to receive alerts, you need to cancel your subscription via Paddle. Emails will stop once your billing period ends.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">🔍 How does brand tracking work?</p>
+            <p class="faq-answer">You can track specific brands in your preferences. If a recall matches your tracked brands, you receive a **personalized alert**.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">🛑 What if I want to receive all recalls?</p>
+            <p class="faq-answer">If you choose not to track specific brands, you will receive **all pet food recall alerts by default**.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">📅 How often will I receive emails?</p>
+            <p class="faq-answer">We send recall emails **only when a new recall is detected**. Our system runs every **2 hours**.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">🌎 Do you cover only U.S. recalls?</p>
+            <p class="faq-answer">Yes, we currently monitor recalls issued by the **U.S. FDA**.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">📞 How do I contact support?</p>
+            <p class="faq-answer">You can reach out to us at **[your support email]**.</p>
+        </div>
+
+        <a href="index.html" class="home-button">⬅️ Return to Home</a>
+
+        <div class="footer">
+            🐾 Stay informed and keep your pets safe! – The PetAlertPro Team
+        </div>
+    </div>
+
+</body>
+</html>
 
