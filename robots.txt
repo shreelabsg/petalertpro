@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /preferences.html
+
+Sitemap: https://petalertpro.com/sitemap.xml
