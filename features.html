@@ -8,18 +8,19 @@
     <meta name="robots" content="index, follow">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: #f8f8f8;
             color: #333;
         }
         .navbar {
             background: #e74c3c;
-            padding: 15px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
         }
         .navbar .logo {
             color: white;
@@ -49,23 +50,10 @@
         .navbar .nav-links a:hover {
             background: rgba(255, 255, 255, 0.2);
         }
-        .subscribe-btn {
-            background: white;
-            color: #e74c3c;
-            padding: 10px 18px;
-            border-radius: 5px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: background 0.3s, color 0.3s;
-        }
-        .subscribe-btn:hover {
-            background: #c0392b;
-            color: white;
-        }
         .container {
             max-width: 800px;
             margin: 40px auto;
-            background: #fff;
+            background: white;
             padding: 25px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -73,6 +61,7 @@
         h1, h2 {
             color: #e74c3c;
             text-align: center;
+            font-weight: bold;
         }
         h2 {
             border-bottom: 2px solid #e74c3c;
@@ -81,6 +70,7 @@
         }
         p {
             line-height: 1.6;
+            font-size: 16px;
         }
         ul {
             list-style: none;
@@ -92,6 +82,7 @@
             margin: 6px 0;
             border-radius: 5px;
             font-weight: bold;
+            font-size: 15px;
         }
         .info-box {
             background: #fff3cd;
@@ -99,6 +90,7 @@
             border-radius: 6px;
             border-left: 5px solid #e74c3c;
             margin: 20px 0;
+            font-size: 15px;
         }
         .footer {
             text-align: center;
@@ -107,21 +99,23 @@
             font-size: 14px;
             color: #777;
         }
-        .home-link {
+        .subscribe-btn {
             display: block;
             text-align: center;
             margin-top: 20px;
             text-decoration: none;
             font-size: 1.2em;
+            font-weight: bold;
             color: white;
-            background: #e44d26;
+            background: #e74c3c;
             padding: 12px;
             border-radius: 6px;
             max-width: 250px;
             margin-left: auto;
             margin-right: auto;
+            transition: background 0.3s;
         }
-        .home-link:hover {
+        .subscribe-btn:hover {
             background: #c0392b;
         }
     </style>
@@ -131,10 +125,10 @@
     <div class="navbar">
         <a href="index.html" class="logo">PetAlertPro</a>
         <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
             <li><a href="features.html">Features</a></li>
             <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="subscribe.html" class="subscribe-btn">Subscribe Now</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
         </ul>
     </div>
 
@@ -163,7 +157,7 @@
 
         <h2>📧 What an Alert Looks Like</h2>
         <p>Here’s an example of the email you’ll receive when a recall is detected:</p>
-        <img src="sample-alert-email.png" alt="Sample Alert Email" style="width:100%; max-width:600px; display:block; margin: 20px auto;">
+        <img src="sample-alert-email.png" alt="Sample Alert Email" style="width:100%; max-width:600px; display:block; margin: 20px auto; border-radius: 6px;">
 
         <h2>💡 What’s Included in Your Subscription?</h2>
         <ul>
@@ -180,7 +174,7 @@
             <li>🛑 **Some recalls may not be included** – If a recall is not issued by a tracked source, we may not detect it.</li>
         </ul>
 
-        <a href="index.html" class="home-link">🏠 Return to Home</a>
+        <a href="subscribe.html" class="subscribe-btn">🚀 Subscribe Now</a>
 
         <div class="footer">
             🐾 Stay informed and keep your pets safe! – The PetAlertPro Team
