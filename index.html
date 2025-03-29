@@ -172,6 +172,42 @@
             margin: 10px auto;
             width: 80%;
         }
+        .navbar {
+            background: #e74c3c;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+        .navbar .nav-links li {
+            display: inline;
+        }
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .navbar .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
     </style>
 </head>
     <!-- Google tag (gtag.js) -->
@@ -184,6 +220,15 @@
       gtag('config', 'G-WVZ6REZTG2');
     </script>
 <body>
+    <div class="navbar">
+        <a href="index.html" class="logo">PetAlertPro</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+    </div>
     <div class="container">
         <h1>🚨 PetAlertPro: Instant Pet Food Recall Alerts! 🐶🐱</h1>
 
