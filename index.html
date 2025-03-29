@@ -174,7 +174,7 @@
         }
         .nav-menu {
             background: #e74c3c;
-            padding: 15px 0; /* Adjusted for proper height */
+            padding: 15px 20px; /* Ensures proper height & spacing */
             width: 100%;
             position: fixed;
             top: 0;
@@ -182,10 +182,9 @@
             z-index: 1000;
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Ensures left logo + right menu */
-            padding-left: 20px;
-            padding-right: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds slight shadow for better visibility */
+            justify-content: space-between; /* Left logo, right menu */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box; /* Prevents content overflow */
         }
         
         .nav-menu .logo {
@@ -211,16 +210,27 @@
             text-decoration: none;
             font-size: 1.1em;
             font-weight: bold;
+            padding: 10px 15px; /* Adds space inside the hover box */
+            border-radius: 5px; /* Smooth edges for the box */
+            transition: background 0.3s ease; /* Smooth hover effect */
         }
         
         .nav-menu ul li a:hover {
-            text-decoration: underline;
+            background: rgba(255, 255, 255, 0.2); /* Creates a light box effect */
+            text-decoration: none;
         }
         
         /* Prevents content from hiding behind fixed navbar */
         body {
             padding-top: 60px;
         }
+        
+        /* Ensures last menu item isn't cut off */
+        .nav-menu ul {
+            flex-wrap: wrap;
+            overflow: hidden;
+        }
+
     </style>
 </head>
     <!-- Google tag (gtag.js) -->
