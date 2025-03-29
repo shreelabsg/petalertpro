@@ -172,52 +172,46 @@
             margin: 10px auto;
             width: 80%;
         }
-        .nav-menu {
+        .navbar {
             background: #e74c3c;
-            padding: 15px 20px; /* Ensures proper height & spacing */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
             position: fixed;
             top: 0;
             left: 0;
             z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between; /* Left logo, right menu */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box; /* Prevents content overflow */
         }
-        
-        .nav-menu .logo {
-            font-size: 1.5em;
-            font-weight: bold;
+        .navbar .logo {
             color: white;
+            font-size: 24px;
+            font-weight: bold;
             text-decoration: none;
         }
-        
-        .nav-menu ul {
+        .navbar .nav-links {
             list-style: none;
+            display: flex;
+            gap: 20px;
             padding: 0;
             margin: 0;
-            display: flex;
         }
-        
-        .nav-menu ul li {
-            margin-left: 20px;
+        .navbar .nav-links li {
+            display: inline;
         }
-        
-        .nav-menu ul li a {
+        .navbar .nav-links a {
             color: white;
             text-decoration: none;
-            font-size: 1.1em;
+            font-size: 16px;
             font-weight: bold;
-            padding: 10px 15px; /* Adds space inside the hover box */
-            border-radius: 5px; /* Smooth edges for the box */
-            transition: background 0.3s ease; /* Smooth hover effect */
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background 0.3s;
         }
-        
-        .nav-menu ul li a:hover {
-            background: rgba(255, 255, 255, 0.2); /* Creates a light box effect */
-            text-decoration: none;
+        .navbar .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
         
         /* Prevents content from hiding behind fixed navbar */
@@ -225,12 +219,7 @@
             padding-top: 60px;
         }
         
-        /* Ensures last menu item isn't cut off */
-        .nav-menu ul {
-            flex-wrap: wrap;
-            overflow: hidden;
-        }
-
+       
     </style>
 </head>
     <!-- Google tag (gtag.js) -->
@@ -243,7 +232,7 @@
       gtag('config', 'G-WVZ6REZTG2');
     </script>
 <body>
-    <div class="nav-menu">
+    <div class="navbar">
         <a href="index.html" class="logo">PetAlertPro</a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
