@@ -7,6 +7,16 @@
   </url>
 
   <url>
+    <loc>https://petalertpro.com/features.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://petalertpro.com/pricing.html</loc>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>https://petalertpro.com/faq.html</loc>
     <priority>0.8</priority>
   </url>
@@ -21,9 +31,4 @@
     <priority>0.6</priority>
   </url>
 
-  <url>
-    <loc>https://petalertpro.com/preferences.html</loc>
-    <priority>0.7</priority>
-  </url>
-
-</urlset>
+ </urlset>
