@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Features - PetAlertPro</title>
-    <meta name="description" content="Explore PetAlertPro's features: pet food recall monitoring, brand tracking, and personalized email alerts to keep your pets safe.">
+    <meta name="description" content="Discover how PetAlertPro helps you stay informed about pet food recalls with advanced tracking and email notifications.">
     <meta name="robots" content="index, follow">
     <style>
         body {
@@ -14,22 +14,61 @@
             background-color: #f9f9f9;
             color: #333;
         }
-        .header {
-            background-color: #e74c3c;
+        .navbar {
+            background: #e74c3c;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .logo {
             color: white;
-            padding: 15px 0;
-            text-align: center;
             font-size: 24px;
             font-weight: bold;
+            text-decoration: none;
+        }
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+        .navbar .nav-links li {
+            display: inline;
+        }
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .navbar .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .subscribe-btn {
+            background: white;
+            color: #e74c3c;
+            padding: 10px 18px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+        }
+        .subscribe-btn:hover {
+            background: #c0392b;
+            color: white;
         }
         .container {
             max-width: 800px;
             margin: 40px auto;
             background: #fff;
-            padding: 20px;
+            padding: 25px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
         }
         h1, h2 {
             color: #e74c3c;
@@ -42,20 +81,24 @@
         }
         p {
             line-height: 1.6;
-            text-align: left;
         }
         ul {
-            text-align: left;
-        }
-        .feature-list {
             list-style: none;
             padding: 0;
         }
-        .feature-list li {
-            padding: 10px;
+        .feature-item {
             background: #f2f2f2;
-            margin: 5px 0;
+            padding: 12px;
+            margin: 6px 0;
             border-radius: 5px;
+            font-weight: bold;
+        }
+        .info-box {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 5px solid #e74c3c;
+            margin: 20px 0;
         }
         .footer {
             text-align: center;
@@ -65,14 +108,18 @@
             color: #777;
         }
         .home-link {
-            display: inline-block;
+            display: block;
+            text-align: center;
             margin-top: 20px;
             text-decoration: none;
             font-size: 1.2em;
             color: white;
             background: #e44d26;
-            padding: 10px 20px;
+            padding: 12px;
             border-radius: 6px;
+            max-width: 250px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .home-link:hover {
             background: #c0392b;
@@ -81,51 +128,56 @@
 </head>
 <body>
 
-    <div class="header">
-        PetAlertPro Features
+    <div class="navbar">
+        <a href="index.html" class="logo">PetAlertPro</a>
+        <ul class="nav-links">
+            <li><a href="features.html">Features</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="subscribe.html" class="subscribe-btn">Subscribe Now</a></li>
+        </ul>
     </div>
 
     <div class="container">
-        <h1>🚀 What PetAlertPro Offers</h1>
-        <p>PetAlertPro helps pet owners stay informed about **pet food recalls** based on announcements from trusted sources such as the **FDA**. We ensure that you receive timely updates and accurate alerts.</p>
+        <h1>🚀 Stay Informed, Protect Your Pet</h1>
+        <p>PetAlertPro is designed to help pet owners receive **timely updates** about pet food recalls. We track announcements from **trusted sources like the FDA** to ensure you never miss an important alert.</p>
 
-        <h2>📢 How Do Alerts Work?</h2>
-        <p>Our system monitors **official recall sources** and filters relevant pet food recalls. If an issue is detected, an email is sent directly to subscribers.</p>
-        <p><strong>Key Features:</strong></p>
-        <ul class="feature-list">
-            <li>🚀 **Continuous monitoring** of pet food recall announcements.</li>
-            <li>🔎 **Advanced filtering** to avoid irrelevant alerts.</li>
-            <li>📩 **Email notifications** sent directly to your inbox.</li>
-        </ul>
+        <h2>📢 How It Works</h2>
+        <p>Our system continuously checks for recall notices. If a recall matches your preferences, you’ll receive an email alert.</p>
 
-        <h2>🔍 How Brand Tracking Works</h2>
-        <p>Subscribers can choose to **track specific pet food brands** for personalized recall notifications. Here's how the tracking system works:</p>
         <ul>
-            <li>📌 If you **enter a brand name but do not check ‘Send alerts only for my tracked brands’**, you will receive <strong>all pet food recall alerts</strong>, but emails will highlight your tracked brand.</li>
-            <li>✅ If you **enter a brand and check ‘Send alerts only for my tracked brands’**, you will receive **alerts only for your selected brands**, even if the recall includes non-pet products.</li>
+            <li class="feature-item">🚀 **Continuous Monitoring** – We scan for recalls regularly.</li>
+            <li class="feature-item">🔎 **Smart Filtering** – Avoids irrelevant alerts.</li>
+            <li class="feature-item">📩 **Email Notifications** – Delivered directly to your inbox.</li>
         </ul>
 
-        <p><strong>Example Email Subject:</strong></p>
-        <blockquote>"🚨 Recall Alert: Issue Detected with Your Tracked Brand XYZ Pet Food"</blockquote>
+        <h2>🔍 Brand Tracking Explained</h2>
+        <p>You can **track specific pet food brands** and customize the alerts you receive.</p>
+        <div class="info-box">
+            <strong>📌 Option 1:</strong> Enter a brand **without checking** "Send alerts only for my tracked brands."  
+            ➝ You’ll receive **all pet food recalls**, but emails will highlight your brand.  
+            <br><br>
+            <strong>✅ Option 2:</strong> Enter a brand **and check** "Send alerts only for my tracked brands."  
+            ➝ You’ll receive **alerts only if your tracked brand is involved**, even if it’s for a non-pet product.
+        </div>
 
-        <h2>📧 Sample Alert Email</h2>
-        <p>When a recall is detected, you will receive an email similar to the one below:</p>
+        <h2>📧 What an Alert Looks Like</h2>
+        <p>Here’s an example of the email you’ll receive when a recall is detected:</p>
         <img src="sample-alert-email.png" alt="Sample Alert Email" style="width:100%; max-width:600px; display:block; margin: 20px auto;">
 
         <h2>💡 What’s Included in Your Subscription?</h2>
-        <p>For **$10/month**, subscribers receive:</p>
-        <ul class="feature-list">
-            <li>🚀 **Fast pet food recall alerts** from official sources.</li>
-            <li>📊 **Brand tracking** for personalized notifications.</li>
-            <li>⚡ **No spam** – only essential recall updates.</li>
-            <li>✅ **Easy preference updates** anytime.</li>
+        <ul>
+            <li class="feature-item">🚀 **Fast pet food recall alerts** from official sources.</li>
+            <li class="feature-item">📊 **Brand tracking** for personalized notifications.</li>
+            <li class="feature-item">⚡ **No spam** – only essential recall updates.</li>
+            <li class="feature-item">✅ **Easy preference updates** anytime.</li>
         </ul>
 
         <h2>⚠️ Limitations</h2>
-        <p>While we strive to provide timely and accurate alerts, there are a few important considerations:</p>
+        <p>While we strive to provide accurate and timely alerts, there are some important considerations:</p>
         <ul>
-            <li>⏳ **Delay in official updates** – Some recall sources may take time to update.</li>
-            <li>🛑 **Certain brands may not be covered** – If a recall is announced on a source we do not track, it may not be included in alerts.</li>
+            <li>⏳ **Official sources may have delays** – Recalls are published at different times.</li>
+            <li>🛑 **Some recalls may not be included** – If a recall is not issued by a tracked source, we may not detect it.</li>
         </ul>
 
         <a href="index.html" class="home-link">🏠 Return to Home</a>
