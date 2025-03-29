@@ -176,6 +176,11 @@
             background: #e74c3c;
             padding: 10px 0;
             text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
         
         .nav-menu ul {
@@ -199,7 +204,11 @@
         .nav-menu ul li a:hover {
             text-decoration: underline;
         }
-
+        
+        /* Add padding to body to prevent content from being hidden behind the fixed nav */
+        body {
+            padding-top: 50px;
+        }
     </style>
 </head>
     <!-- Google tag (gtag.js) -->
