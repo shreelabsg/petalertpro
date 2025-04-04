@@ -147,6 +147,11 @@
                 <label for="trackOnly">Send alerts only for my tracked brands (even if they include non-pet products)</label>
             </div>
 
+            <div class="checkbox-group">
+                <input type="checkbox" id="subscribed">
+                <label for="subscribed">Subscribed to Alerts</label>
+            </div>
+
             <button type="submit" id="update-btn">Update Preferences</button>
         </form>
     </div>
@@ -161,6 +166,7 @@
             const emailDisplay = document.getElementById("email-display");
             const brandsInput = document.getElementById("brands");
             const trackOnlyCheckbox = document.getElementById("trackOnly");
+            const subscribedCheckbox = document.getElementById("subscribed");
             const updateBtn = document.getElementById("update-btn");
 
             if (!token) {
@@ -172,6 +178,7 @@
             updateBtn.disabled = true;
             brandsInput.disabled = true;
             trackOnlyCheckbox.disabled = true;
+            subscribedCheckbox.disabled = true;
 
             try {
                 const response = await apiRequest(`/preferences?token=${token}`);
@@ -189,6 +196,7 @@
                     emailDisplay.textContent = data.email;
                     brandsInput.value = data.brands || "";
                     trackOnlyCheckbox.checked = data.trackedOnly === "Yes";
+                    subscribedCheckbox.checked = data.subscribed === "YES";
                 }
             } catch (error) {
                 errorDiv.textContent = "Failed to load preferences.";
@@ -198,6 +206,7 @@
                 updateBtn.disabled = false;
                 brandsInput.disabled = false;
                 trackOnlyCheckbox.disabled = false;
+                subscribedCheckbox.disabled = false;
             }
 
             form.addEventListener("submit", async function (event) {
@@ -205,11 +214,13 @@
 
                 const updatedBrands = brandsInput.value.trim();
                 const updatedTrackedOnly = trackOnlyCheckbox.checked ? "true" : "false";
+                const updatedSubscribed = subscribedCheckbox.checked ? "true" : "false";
 
                 const formData = new FormData();
                 formData.append("token", token);
                 formData.append("brands", updatedBrands);
                 formData.append("trackedOnly", updatedTrackedOnly);
+                formData.append("subscribed", updatedSubscribed);
 
                 loadingDiv.style.display = "block";
                 updateBtn.disabled = true;
