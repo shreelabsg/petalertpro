@@ -226,6 +226,7 @@
                 updateBtn.disabled = true;
                 brandsInput.disabled = true;
                 trackOnlyCheckbox.disabled = true;
+                subscribedCheckbox.disabled = true;
 
                 try {
                     const response = await apiRequest("/update-preferences", {
@@ -250,6 +251,7 @@
                     updateBtn.disabled = false;
                     brandsInput.disabled = false;
                     trackOnlyCheckbox.disabled = false;
+                    subscribedCheckbox.disabled = false;
                 }
             });
         });
