@@ -1,6 +1,6 @@
 // Detect if the website is running on staging or production
 const isStaging = window.location.hostname.includes("staging");
-const PADDLE_MODE = isStaging ? "sandbox" : "production"; //production or sandbox
+const PADDLE_MODE = isStaging ? "sandbox" : "sandbox"; //production or sandbox
 
 const SUPPORT_EMAIL = "contact.shreelabs@gmail.com";
 // Define Cloudflare API base URLs
