@@ -307,7 +307,7 @@
               const invalidBrands = inputBrands.filter(b => b.replace(/\s/g, "").length < 4);
             
               if (invalidBrands.length > 0) {
-                e.preventDefault();
+                //e.preventDefault();
                 alert("Each brand must be at least 4 characters long (excluding spaces).");
                 return;
               }
