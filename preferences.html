@@ -213,6 +213,16 @@
                 event.preventDefault();
 
                 const updatedBrands = brandsInput.value.trim();
+
+                const inputBrands = updatedBrands.split(",").map(b => b.trim()).filter(b => b.length > 0);
+                const invalidBrands = inputBrands.filter(b => b.replace(/\s/g, "").length < 4);
+                
+                  if (invalidBrands.length > 0) {
+                    //e.preventDefault();
+                    alert("Each brand must be at least 4 characters long (excluding spaces).");
+                    return;
+                  }
+                
                 const updatedTrackedOnly = trackOnlyCheckbox.checked ? "true" : "false";
                 const updatedSubscribed = subscribedCheckbox.checked ? "true" : "false";
 
