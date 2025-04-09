@@ -46,7 +46,7 @@ function generateJWT() {
   const payload = {
     sub: "petalert-ui",
     iat: Math.floor(Date.now() / 1000),
-    exp: Math.floor(Date.now() / 1000) + 60 // ⏳ expires in 5 minutes
+    exp: Math.floor(Date.now() / 1000) + 300 // ⏳ expires in 5 minutes
   };
 
   const base64url = str =>
