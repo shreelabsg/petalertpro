@@ -5,7 +5,7 @@ const PADDLE_MODE = isStaging ? "sandbox" : "sandbox"; //production or sandbox
 const SUPPORT_EMAIL = "support@petalertpro.com";
 // Define Cloudflare API base URLs
 const API_BASE_URL = isStaging
-  ? "https://petalertpro.contact-shreelabs.workers.dev"
+  ? ""
   : "https://petalertpro.contact-shreelabs.workers.dev";
 
 // Paddle Configuration (No direct Paddle reference here)
