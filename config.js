@@ -36,7 +36,7 @@ async function apiRequest(endpoint, options = {}) {
     .catch(error => console.error("API Error:", error));
 }
 
-<script>
+
   function adjustBodyPadding() {
     const navbar = document.querySelector('.navbar');
     if (navbar) {
@@ -49,7 +49,7 @@ async function apiRequest(endpoint, options = {}) {
 
   // Run again if window is resized (e.g., screen rotates or browser resized)
   window.addEventListener('resize', adjustBodyPadding);
-</script>
+
 
 
 function generateJWT() {
