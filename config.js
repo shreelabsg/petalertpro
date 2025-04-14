@@ -36,6 +36,22 @@ async function apiRequest(endpoint, options = {}) {
     .catch(error => console.error("API Error:", error));
 }
 
+<script>
+  function adjustBodyPadding() {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      document.body.style.paddingTop = navbar.offsetHeight + 'px';
+    }
+  }
+
+  // Run once on page load
+  window.addEventListener('load', adjustBodyPadding);
+
+  // Run again if window is resized (e.g., screen rotates or browser resized)
+  window.addEventListener('resize', adjustBodyPadding);
+</script>
+
+
 function generateJWT() {
   const secret = "petalert-shared-secret"; // 🔐 Must match the Worker!
   const header = {
