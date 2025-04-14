@@ -5,7 +5,18 @@
     <loc>https://petalertpro.com/</loc>
     <priority>1.0</priority>
   </url>
-
+  <url>
+    <loc>https://petalertpro.com/blog/dog-food-recall-alerts.html</loc>
+    <priority>2.0</priority>
+  </url>
+  <url>
+    <loc>https://petalertpro.com/blog/cat-food-recall-alerts.html</loc>
+    <priority>2.0</priority>
+  </url>
+ <url>
+    <loc>https://petalertpro.com/blog.html</loc>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://petalertpro.com/features.html</loc>
     <priority>0.8</priority>
