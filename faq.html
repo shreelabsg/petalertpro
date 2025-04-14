@@ -14,7 +14,6 @@
             padding: 0;
             background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
             color: #333;
-            padding-top:60px;
         }
         .container {
             max-width: 800px;
@@ -101,80 +100,80 @@
             width: 80%;
         }
         .navbar {
-	  background: #e74c3c;
-	  padding: 15px 20px;
-	  display: flex;
-	  justify-content: space-between;
-	  align-items: center;
-	  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-	  width: 100%;
-	  position: fixed;
-	  top: 0;
-	  left: 0;
-	  z-index: 1000;
-	}
+		  background: #e74c3c;
+		  padding: 15px 20px;
+		  display: flex;
+		  justify-content: space-between;
+		  align-items: center;
+		  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+		  width: 100%;
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  z-index: 1000;
+		}
 
-	.navbar .logo {
-	  color: white;
-	  font-size: 24px;
-	  font-weight: bold;
-	  text-decoration: none;
-	}
+		.navbar .logo {
+		  color: white;
+		  font-size: 24px;
+		  font-weight: bold;
+		  text-decoration: none;
+		}
 
-	.hamburger {
-	  display: none;
-	  font-size: 24px;
-	  color: white;
-	  cursor: pointer;
-	  margin-right:20px;
-	}
+		.hamburger {
+		  display: none;
+		  font-size: 24px;
+		  color: white;
+		  cursor: pointer;
+		  margin-right:20px;
+		}
 
-	.nav-links {
-	  list-style: none;
-	  display: flex;
-	  gap: 20px;
-	  padding: 0px 30px 0px 0px;
-	  margin: 0;
-	}
+		.nav-links {
+		  list-style: none;
+		  display: flex;
+		  gap: 20px;
+		  padding: 0px 30px 0px 0px;
+		  margin: 0;
+		}
 
-	.nav-links li {
-	  display: inline;
-	}
+		.nav-links li {
+		  display: inline;
+		}
 
-	.nav-links a {
-	  color: white;
-	  text-decoration: none;
-	  font-size: 16px;
-	  font-weight: bold;
-	  padding: 8px 12px;
-	  border-radius: 4px;
-	  transition: background 0.3s;
-	}
+		.nav-links a {
+		  color: white;
+		  text-decoration: none;
+		  font-size: 16px;
+		  font-weight: bold;
+		  padding: 8px 12px;
+		  border-radius: 4px;
+		  transition: background 0.3s;
+		}
 
-	.nav-links a:hover {
-	  background: rgba(255, 255, 255, 0.2);
-	}
+		.nav-links a:hover {
+		  background: rgba(255, 255, 255, 0.2);
+		}
 
-	@media (max-width: 768px) {
-	  .nav-links {
-		display: none;
-		flex-direction: column;
-		background: #e74c3c;
-		position: absolute;
-		top: 60px;
-		right: 0;
-		width: 100%;
-		padding: 20px 0;
-	  }
+		@media (max-width: 768px) {
+		  .nav-links {
+			display: none;
+			flex-direction: column;
+			background: #e74c3c;
+			position: absolute;
+			top: 60px;
+			right: 0;
+			width: 100%;
+			padding: 20px 0;
+		  }
 
-	  .nav-links.active {
-		display: flex;
-	  }
+		  .nav-links.active {
+			display: flex;
+		  }
 
-	  .hamburger {
-		display: block;
-	  }
-	}
+		  .hamburger {
+			display: block;
+		  }
+		}
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
