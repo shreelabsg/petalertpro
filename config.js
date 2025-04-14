@@ -50,6 +50,11 @@ async function apiRequest(endpoint, options = {}) {
   // Run again if window is resized (e.g., screen rotates or browser resized)
   window.addEventListener('resize', adjustBodyPadding);
 
+function toggleMenu() {
+const navLinks = document.getElementById("navLinks");
+navLinks.classList.toggle("active");
+
+}
 
 
 function generateJWT() {

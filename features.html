@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script src="config.js?v=7"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Features - PetAlertPro</title>
@@ -16,46 +17,80 @@
             padding-top:60px;
         }
         .navbar {
-            background: #e74c3c;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-        .navbar .logo {
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .navbar .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            padding: 0px 30px 0px 0px;
-            margin: 0;
-        }
-        .navbar .nav-links li {
-            display: inline;
-        }
-        .navbar .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-        .navbar .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
+		  background: #e74c3c;
+		  padding: 15px 20px;
+		  display: flex;
+		  justify-content: space-between;
+		  align-items: center;
+		  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+		  width: 100%;
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  z-index: 1000;
+		}
+
+		.navbar .logo {
+		  color: white;
+		  font-size: 24px;
+		  font-weight: bold;
+		  text-decoration: none;
+		}
+
+		.hamburger {
+		  display: none;
+		  font-size: 24px;
+		  color: white;
+		  cursor: pointer;
+		  margin-right:20px;
+		}
+
+		.nav-links {
+		  list-style: none;
+		  display: flex;
+		  gap: 20px;
+		  padding: 0px 30px 0px 0px;
+		  margin: 0;
+		}
+
+		.nav-links li {
+		  display: inline;
+		}
+
+		.nav-links a {
+		  color: white;
+		  text-decoration: none;
+		  font-size: 16px;
+		  font-weight: bold;
+		  padding: 8px 12px;
+		  border-radius: 4px;
+		  transition: background 0.3s;
+		}
+
+		.nav-links a:hover {
+		  background: rgba(255, 255, 255, 0.2);
+		}
+
+		@media (max-width: 768px) {
+		  .nav-links {
+			display: none;
+			flex-direction: column;
+			background: #e74c3c;
+			position: absolute;
+			top: 60px;
+			right: 0;
+			width: 100%;
+			padding: 20px 0;
+		  }
+
+		  .nav-links.active {
+			display: flex;
+		  }
+
+		  .hamburger {
+			display: block;
+		  }
+		}
         .container {
             max-width: 850px;
             margin: 40px auto;
@@ -155,16 +190,17 @@
 </head>
 <body>
 
-    <div class="navbar">
-        <a href="index.html" class="logo">PetAlertPro</a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-			<li><a href="Blog.html">Blog</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-        </ul>
-    </div>
+   <div class="navbar">
+  <a href="index.html" class="logo">PetAlertPro</a>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="Blog.html">Blog</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+  </ul>
+</div>
 
     <div class="container">
         <h1>🚀 Stay Informed, Protect Your Pet</h1>
