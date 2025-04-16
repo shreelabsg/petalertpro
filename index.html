@@ -49,22 +49,31 @@
             padding: 0;
             background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
             color: #333;
-            display: flex;
+            /*display: flex;
             justify-content: center;
             align-items: center;
+			text-align: center;*/
             min-height: 100vh;
-            text-align: center;
+            
             overflow-y: auto;
             padding: 20px;
         }
-        .container {
-            max-width: 600px;
+        /*.container {
+            max-width: 900px;
             background: white;
             padding: 30px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             border-radius: 12px;
             text-align: center;
             width: 100%;
+        }*/
+		.container {
+            max-width: 850px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
         }
         h1 {
             font-size: 2.2em;
@@ -124,7 +133,7 @@
             width: 100%;
         }
         .button:hover {
-            background: #c0392b;
+            background: #219150;
             transform: scale(1.05);
         }
         .loading {
@@ -316,7 +325,28 @@ src="https://www.facebook.com/tr?id=2855294074658617&ev=PageView&noscript=1"
     <div class="container">
         <h1>🚨 PetAlertPro: Instant Pet Food Recall Alerts! 🐶🐱</h1>
 
-        <div class="why-list">
+		<div id="info">
+  <h2 style="color: #3ea832; font-size: 28px; margin-bottom: 20px;">Why Pet Food Recalls Matter (And How PetAlertPro Protects You)</h2>
+  
+  <p>
+    You trust your pet’s food to keep them healthy, energized, and safe. But what if the very product meant to nourish your dog or cat was quietly recalled due to contamination or a life-threatening mistake — and you never even knew?
+  </p>
+
+  <p>
+    Over the past few years, even well-known brands like <strong>Purina</strong>, <strong>Midwestern</strong>, and <strong> Sunshine Mills</strong> have faced serious recalls. These aren’t isolated incidents. From <strong>salmonella outbreaks</strong> to toxic mold and even deadly vitamin overdoses, pet food recalls happen more often than most owners realize.
+  </p>
+
+  <p>
+    The FDA publishes recall alerts, but they can be hard to find, often buried in obscure pages. By the time a notice reaches the average pet owner, it might already be too late.
+  </p>
+
+  <p><strong>That’s exactly why we built PetAlertPro.</strong></p>
+
+  <p >
+    Our system scans official FDA recall sources 24/7 and instantly flags any dog or cat food alerts. Whether you're feeding premium grain-free blends or prescription kibble, PetAlertPro keeps watch on your brand and notifies you the moment a problem arises.
+  </p>
+  
+  <div class="why-list" id="subscribe-now">
             <h2>Why PetAlertPro?</h2>
             <ul>
                 <li>🚀 Instant pet food recall alerts(USFDA)</li>
@@ -326,14 +356,16 @@ src="https://www.facebook.com/tr?id=2855294074658617&ev=PageView&noscript=1"
                 <li>💲 Affordable at just $10/month</li>
             </ul>
         </div>
-
+<p style="color:#3ea832;font-weight:bold;font-size: 1.5em;">
+    Your pet depends on you. And now, you can depend on PetAlertPro.
+  </p>
         <!--<div class="input-group">
             <label for="email">Enter your email:</label>
             <input type="email" id="email" placeholder="example@email.com" required>
         </div>-->
 
-        <div class="input-group">
-            <label for="brands">Enter pet food brands to track (optional, comma separated):<span 
+        <div class="input-group" >
+            <label for="brands" style="color: #e74c3c">Enter pet food brands to track (optional, comma separated):<span 
       title="You'll still receive all alerts, but tracked brands personalize your email subject"
       style="cursor: help; font-weight: bold;   width: 18px; height: 18px; text-align: center; display: inline-block; line-height: 16px; font-size: 13px; ">
       ?
@@ -343,11 +375,45 @@ src="https://www.facebook.com/tr?id=2855294074658617&ev=PageView&noscript=1"
 
         <div class="checkbox-group">
             <input type="checkbox" id="trackOnly">
-            <label for="trackOnly">Send alerts only for my tracked brands</label>
+            <label for="trackOnly" style="color: #e74c3c">Send alerts only for my tracked brands</label>
         </div>
 
         <button class="button" id="subscribe-button">Get Instant Alerts - $10/month</button>
         <div class="loading" id="loading">Processing... Please wait.</div>
+		
+
+  <h3 style="color: #e74c3c; margin-top: 30px;">Imagine This:</h3>
+  <p>
+    You come home from work. Your dog isn't eating. You assume it's just an off day. A week later, the vet tells you it was food poisoning — and you discover the food you bought had been recalled two weeks ago for salmonella.
+  </p>
+  <p>
+    Sadly, this happens more than you'd think. But with PetAlertPro, you would’ve known right away. Our recall alert would’ve landed in your inbox within hours of the FDA’s announcement — personalized, relevant, and immediate.
+  </p>
+
+  <h3 style="color: #e74c3c; margin-top: 30px;">No More Guesswork</h3>
+  <p>
+    Whether you’re tracking trusted names like <strong>Purina Pro Plan</strong>, <strong>Badlands Ranch</strong>, or niche brands, PetAlertPro keeps you updated. You can choose to receive <strong>only alerts for your tracked brands</strong>, or get notified about all dog or cat food recalls. Either way, you're in control.
+  </p>
+
+  <p>
+    Want to keep your pet safe? Check out our resources below:
+  </p>
+
+  <ul style="padding-left: 20px; margin-bottom: 20px;">
+    <li><a href="blog/dog-food-recall-alerts.html" style="color: #e74c3c; font-weight: bold;">Dog Food Recall Alerts – Everything You Must Know to Keep Your Pet Safe</a></li>
+    <li><a href="blog/cat-food-recall-alerts.html" style="color: #e74c3c; font-weight: bold;">Cat Food Recall Alerts – Everything You Must Know to Keep Your Pet Safe</a></li>
+  </ul>
+
+  <p style="color:#3ea832;font-weight:bold;font-size: 1.5em;">
+    Your pet depends on you. And now, you can depend on PetAlertPro.
+  </p>
+  
+</div>
+
+
+        
+	
+  
 
         <div class="footer">
             <div class="footer-help">
