@@ -17,7 +17,7 @@
       background: #f9f9f9;
       color: #222;
     }
-    header, footer {
+    header {
       background-color: #004d40;
       color: white;
       padding: 20px;
@@ -106,7 +106,40 @@
 	.nav-links a:hover {
 	  background: rgba(255, 255, 255, 0.2);
 	}
-
+	.footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            text-align: center;
+            color: #555;
+        }
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer-help {
+            margin-bottom: 10px;
+        }
+    
+        .footer-help h4 {
+            margin: 0;
+            color: #e74c3c;
+            font-size: 16px;
+        }
+    
+        .footer-help p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .footer-divider 
+        {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 10px auto;
+            width: 80%;
+        }
 	@media (max-width: 768px) {
 	  .nav-links {
 		display: none;
@@ -805,6 +838,20 @@
   <p>🧠 Want a simple way to never miss a recall? We’ve got you covered:</p>
   <a href="../index.html#subscribe-now" class="subscribe-btn">📬 Subscribe to PetAlertPro — Your Cat’s Watchdog</a>
 </section>
+
+ <div class="footer">
+            <hr class="footer-divider">
+            <div class="footer-help">
+                <h4>Need Help?</h4>
+                <p>For any questions, check our <a href="../faq.html">FAQ</a> or contact us at <a href="mailto:support@petalertpro.com">support@petalertpro.com</a>.</p>
+            </div>
+            <hr class="footer-divider">
+            <p>&copy; 2025 PetAlertPro. All rights reserved.</p>
+            <p><a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
+        </div>
+        <div class="footer">
+            🐾 Keep your pets safe with PetAlertPro – Stay ahead of recalls!
+        </div>
 </div>
 </body>
 </html>
